@@ -37,7 +37,7 @@ func newNotifySocket(context *cli.Context, notifySocketHost string, id string) *
 		host:       notifySocketHost,
 		socketPath: socketPath,
 	}
-	logrus.Infof("创建notifySocket完成，notifySocket:%v",notifySocket)
+	logrus.Infof("host:%s,path:%s",notifySocketHost,socketPath)
 	return notifySocket
 }
 
