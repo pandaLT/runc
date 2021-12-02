@@ -405,6 +405,7 @@ func startContainer(context *cli.Context, spec *specs.Spec, action CtAct, criuOp
 	}
 
 	notifySocket := newNotifySocket(context, os.Getenv("NOTIFY_SOCKET"), id)
+	logrus.Infof("notifiedSocket:%v",notifySocket)
 	if notifySocket != nil {
 		if err := notifySocket.setupSpec(context, spec); err != nil {
 			return -1, err

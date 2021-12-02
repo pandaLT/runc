@@ -37,7 +37,6 @@ func newNotifySocket(context *cli.Context, notifySocketHost string, id string) *
 		host:       notifySocketHost,
 		socketPath: socketPath,
 	}
-	logrus.Info(notifySocketHost + "," + socketPath)
 	return notifySocket
 }
 
