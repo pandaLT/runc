@@ -398,6 +398,7 @@ const (
 )
 
 func startContainer(context *cli.Context, spec *specs.Spec, action CtAct, criuOpts *libcontainer.CriuOpts) (int, error) {
+	logrus.Info("启动容器")
 	id := context.Args().First()
 	if id == "" {
 		return -1, errEmptyID
