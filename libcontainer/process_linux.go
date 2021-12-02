@@ -327,6 +327,7 @@ func (p *initProcess) waitForChildExit(childPid int) error {
 }
 
 func (p *initProcess) start() (retErr error) {
+	logrus.Info("开始启动init进程")
 	defer p.messageSockPair.parent.Close() //nolint: errcheck
 	err := p.cmd.Start()
 	p.process.ops = p

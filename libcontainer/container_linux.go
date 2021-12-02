@@ -251,6 +251,7 @@ func (c *linuxContainer) Set(config configs.Config) error {
 }
 
 func (c *linuxContainer) Start(process *Process) error {
+	logrus.Infof("启动进程,参数:%v",process)
 	c.m.Lock()
 	defer c.m.Unlock()
 	if c.config.Cgroups.Resources.SkipDevices {
@@ -359,6 +360,7 @@ type openResult struct {
 }
 
 func (c *linuxContainer) start(process *Process) (retErr error) {
+	//创建父进程
 	parent, err := c.newParentProcess(process)
 	if err != nil {
 		return newSystemErrorWithCause(err, "creating new parent process")
@@ -563,6 +565,7 @@ func (c *linuxContainer) newInitProcess(p *Process, cmd *exec.Cmd, messageSockPa
 		sharePidns:      sharePidns,
 	}
 	c.initProcess = init
+	logrus.Infof("初始化后的initProcess: %v",init)
 	return init, nil
 }
 

@@ -4,6 +4,7 @@ package main
 
 import (
 	"bytes"
+	"github.com/sirupsen/logrus"
 	"net"
 	"os"
 	"path"
@@ -23,6 +24,7 @@ type notifySocket struct {
 }
 
 func newNotifySocket(context *cli.Context, notifySocketHost string, id string) *notifySocket {
+	logrus.Info("创建notifySocket开始")
 	if notifySocketHost == "" {
 		return nil
 	}
@@ -35,7 +37,7 @@ func newNotifySocket(context *cli.Context, notifySocketHost string, id string) *
 		host:       notifySocketHost,
 		socketPath: socketPath,
 	}
-
+	logrus.Infof("创建notifySocket完成，notifySocket:%v",notifySocket)
 	return notifySocket
 }
 

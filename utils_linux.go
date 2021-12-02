@@ -411,6 +411,7 @@ func startContainer(context *cli.Context, spec *specs.Spec, action CtAct, criuOp
 		}
 	}
 
+	//创建逻辑容器
 	container, err := createContainer(context, id, spec)
 	if err != nil {
 		return -1, err
